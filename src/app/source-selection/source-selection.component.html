@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="jumbotron">
+		<h2><span class="glyphicon glyphicon-list-alt"></span> News Lists</h2>
+		<h4>Select News source</h4>
+		<select class="form-control" (change)="onChange($event.target.value)" name="" id="">
+			<option [value]="source.id" *ngFor="let source of sources">{{source.id | uppercase}}</option>
+		</select>
+		<div *ngIf="source">
+			<h6>{{source.description}}</h6>
+			<a [href]="source.url" class="btn btn-primary" target="_blank">Go to {{source.name}}</a>
+		</div>
+
+	</div>
+</div>
+<app-news-list [source]="source_id" ></app-news-list>
